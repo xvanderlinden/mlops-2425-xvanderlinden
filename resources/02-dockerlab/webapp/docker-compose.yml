@@ -1,0 +1,36 @@
+services:
+  webapp:
+    image: xvanderlinden/webapp:latest  # Use the image from Docker Hub
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./database:/app/database
+    environment:
+      - NODE_ENV=development
+      - MYSQL_URL=mysql://root:password@database:3306/webapp_db  # URL for MySQL connection
+    depends_on:
+      - database  # Ensure the database starts before the webapp
+    command: yarn start
+
+  test:
+    image: xvanderlinden/webapp:latest  # Use the image from Docker Hub
+    environment:
+      - API_URL=http://webapp:3000
+    depends_on:
+      - webapp
+    command: yarn test
+
+  database:
+    image: mysql:8.0
+    environment:
+      MYSQL_ROOT_PASSWORD: password
+      MYSQL_DATABASE: webapp_db
+      MYSQL_USER: webapp
+      MYSQL_PASSWORD: webapp_password
+    volumes:
+      - mysql_data:/var/lib/mysql  # Persist the MySQL database on host
+    ports:
+      - "3307:3306"  # Expose the MySQL port if needed
+
+volumes:
+  mysql_data:
