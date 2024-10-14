@@ -1,8 +1,7 @@
 # Machine Learning Operations - Lab assignments
 
-- Student name: NAME
-- Repository URL: <https://github.com/HOGENT-MLOps/USERNAME/REPO>
-
+- Student name: Xander Van der Linden
+- Repository URL: <https://github.com/HOGENT-MLOps/mlops-2425-xvanderlinden>
 This repository contains the lab assignments for the course Machine Learning Operations, which is part of the [Bachelor Applied Computer Science programme](https://www.hogent.be/opleidingen/bachelors/toegepaste-informatica/) at [HOGENT](https://www.hogent.be/).
 
 The goal of these assignments is to get familiar with concepts like container virtualization, CI/CD, monitoring, etc. in the context of Machine Learning Operations.
