@@ -1,7 +1,7 @@
 # Cheat sheets and checklists
 
-- Student name: NAME
-- GitHub repo: URL
+- Student name: Xander Van der Linden
+- GitHub repo: <https://github.com/HOGENT-MLOps/mlops-2425-xvanderlinden>
 
 ## Basic commands
 
@@ -57,3 +57,24 @@ Simple workflow for a personal project without other contributors:
 | Update .gitignore             | `echo "dockerlab/webapp/database" >> .gitignore`       |
 | Copy Docker Compose File      | `cp docker-compose.yml docker-compose-sqlite.yml`      |
 | Run Tests                     | `docker compose run test`                              |
+
+## Labo 2 CI/CD
+
+| Task                          | Command                                                     |
+| :-----------------------------| :---------------------------------------------------------- |
+| Set global username            | `git config --global user.name "Your Name"`                 |
+| Set global email               | `git config --global user.email "Your@Name.com"`            |
+| Check Git configuration        | `git config --global --list`                               |
+| Initialize a Git repository     | `git init`                                                 |
+| Add all files to staging        | `git add .`                                                |
+| Commit with a message           | `git commit -m "Your commit message"`                      |
+| Push to the main branch         | `git push origin main`                                     |
+| Clone a repository              | `git clone <repository-url>`                               |
+| Set remote origin               | `git remote add origin <repository-url>`                   |
+| Install project dependencies    | `yarn install`                                             |
+| Run linter                      | `yarn lint`                                                |
+| Run tests                       | `yarn test`                                                |
+| Create a Docker image           | `docker build -t <image-name> .`                           |
+| Run a Docker container          | `docker run -p 3000:3000 <image-name>`                     |
+| Push Docker image to Docker Hub | `docker push <dockerhub-username>/<image-name>`            |
+| Pull Docker image from Docker Hub| `docker pull <dockerhub-username>/<image-name>`           |

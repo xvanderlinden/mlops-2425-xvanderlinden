@@ -1,15 +1,15 @@
 # Demo1 commando's
 
 ## 1. Show that you created a Docker image for the API
-docker build xvanderlinden/webapp .
 
-docker images 
+docker build -t xvanderlinden/webapp .
+docker images
 
 ## 2. Show that you can start the API using the SQLite database
 
-docker-compose -d -f docker-compose-sqlite.yml up
+docker-compose -f docker-compose-sqlite.yml up -d
 
-curl http://localhost:3000/animals
+`curl http://localhost:3000/animals`
 
 ## 3 Show that you can start the API using the MySQL database
 
@@ -33,6 +33,10 @@ portainer(zie google)
 
 docker-compose run test
 
+## 8. Show that you pushed the Docker image to Docker Hub and that you can pull it from Docker Hub
+
+docker stop e54fa11c4c48
 docker image rm xvanderlinden/webapp
 docker pull xvanderlinden/webapp
 
+## 9 en 10 report en Cheathsheet + github
