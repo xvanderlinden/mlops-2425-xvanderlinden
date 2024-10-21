@@ -1,0 +1,8 @@
+services:
+  webapp:
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./database:/app/database  # Map the host folder `./database` to the container's folder `/app/database`
+
