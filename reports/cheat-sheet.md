@@ -84,7 +84,7 @@ Simple workflow for a personal project without other contributors:
 | Taak                                         | Commando                                                    |
 | :------------------------------------------ | :---------------------------------------------------------- |
 | Gebruik Python's ingebouwde `venv` module om een virtuele omgeving aan te maken | `python3 -m venv venv`                                      |
-| Activeer de virtuele omgeving (Windows)     | `venv\Scripts\activate.bat`                                  |
+| Activeer de virtuele omgeving (Windows)     | `.\venv\Scripts\Activate`                                  |
 | Controleer het pad naar Python              | `Get-Command python`                                         |
 | Controleer het pad naar pip                 | `Get-Command pip`                                            |
 | Start de Prefect server (Linux/macOS)       | `export PREFECT_HOME=$(pwd)/prefect_home`                   |

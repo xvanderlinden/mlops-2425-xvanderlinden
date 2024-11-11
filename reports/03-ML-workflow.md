@@ -71,6 +71,7 @@ Om ervoor te zorgen dat je virtuele omgeving niet door Git wordt gevolgd, voeg j
 venv/
 
 ### Waar worden de afhankelijkheden geïnstalleerd?
+
 De afhankelijkheden worden geïnstalleerd in de virtuele omgeving zelf, meestal in de map venv in je projectdirectory. Dit zorgt ervoor dat de geïnstalleerde pakketten enkel beschikbaar zijn voor dit specifieke project, en niet voor andere projecten of systemen. De geïnstalleerde pakketten staan dus niet in de globale Python-installatie.
 
 Waarom moeten we de omgeving variabele PREFECT_HOME instellen?
