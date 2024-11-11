@@ -1,9 +1,9 @@
-# Lab Report: SUBJECT
+# Lab Report: MLflow
 
 ## Student information
 
-- Student name: NAME
-- Student code: CODE
+- Student name: Xander Van der Linden
+- Student code: 202292316
 
 ## Assignment description
 
@@ -11,17 +11,26 @@ Describe the assignment in your own words. What did you have to do? What was the
 
 ## Proof of work done
 
-Include screenshots, code snippets, etc. to prove that you completed the assignment. If you have a lot of code, you can link to a separate file or repository.
+![alt text](image-8.png)
+![alt text](image-9.png)
+![alt text](image-10.png)
+![alt text](image-11.png)
+![alt text](image-12.png)
+![alt text](image-13.png)
 
 ## Evaluation criteria
 
-Copy the acceptance criteria from the assignment into this section using a [task list](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax#task-lists).
-Check the boxes that apply. Provide a brief explanation for each box you **didn't** check.
-
-The list below is an example. Replace it with the entire section with the actual acceptance criteria.
-
-- [x] The report is written in Markdown
-- [ ] The container is running: I couldn't get it to work because the container image is not available
+- Show that you've executed the notebook and pushed it to the repository
+  - Show that your Jupyter notebook contains all cells' output
+- Show that you created a virtual environment for the project
+- Show the Prefect and MLFlow dashboards
+- Show that your ML pipeline is working
+- Show the logs and metrics in the MLFlow dashboard
+- Show that you pushed a model to MLFlow
+- Show that you wrote an elaborate lab report in Markdown and pushed it to the repository
+  - Show that it contains the answers to the questions in the lab assignment
+  - Show that it contains the screenshots of the MLFlow dashboard
+- Show that you are able to make a prediction with the deployed model
 
 ## Issues
 

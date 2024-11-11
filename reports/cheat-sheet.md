@@ -78,3 +78,22 @@ Simple workflow for a personal project without other contributors:
 | Run a Docker container          | `docker run -p 3000:3000 <image-name>`                     |
 | Push Docker image to Docker Hub | `docker push <dockerhub-username>/<image-name>`            |
 | Pull Docker image from Docker Hub| `docker pull <dockerhub-username>/<image-name>`           |
+
+## Labo 3 - MLFlow Cheatsheet
+
+| Taak                                         | Commando                                                    |
+| :------------------------------------------ | :---------------------------------------------------------- |
+| Gebruik Python's ingebouwde `venv` module om een virtuele omgeving aan te maken | `python3 -m venv venv`                                      |
+| Activeer de virtuele omgeving (Windows)     | `venv\Scripts\activate.bat`                                  |
+| Controleer het pad naar Python              | `Get-Command python`                                         |
+| Controleer het pad naar pip                 | `Get-Command pip`                                            |
+| Start de Prefect server (Linux/macOS)       | `export PREFECT_HOME=$(pwd)/prefect_home`                   |
+| Start de Prefect server (Windows)           | `$Env:PREFECT_HOME = "$(Get-Location)/prefect_home"`         |
+| Start de Prefect server                     | `prefect server start`                                      |
+| Start de MLFlow server                      | `mlflow server`                                             |
+| Zet MLFlow system metrics logging op true   | `export MLFLOW_ENABLE_SYSTEM_METRICS_LOGGING=true`           |
+| Start MLFlow met logging                    | `python -m mlflow.server`                                   |
+| Log een MLFlow experiment                   | `mlflow.start_run()`                                         |
+| Log metrics met MLFlow                      | `mlflow.log_metric("metric_name", value)`                    |
+| Log een model met MLFlow                    | `mlflow.log_artifact("pad_naar_model")`                      |
+| Zet de MLFlow tracking URI                  | `mlflow.set_tracking_uri("http://localhost:5000")`           |
