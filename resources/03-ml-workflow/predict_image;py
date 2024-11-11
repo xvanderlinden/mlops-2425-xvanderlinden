@@ -1,0 +1,48 @@
+import tensorflow as tf
+from tensorflow.keras.preprocessing.image import load_img, img_to_array
+import numpy as np
+import os
+
+# Define paths
+MODEL_PATH = os.path.join(os.path.dirname(__file__), "trained_model.keras")
+IMAGE_PATH = os.path.join(os.path.dirname(__file__), "images.png")
+
+# Load the model
+model = tf.keras.models.load_model(MODEL_PATH)
+
+# Define class labels (replace with actual class labels if they are known)
+class_labels = ["class_1", "class_2", "class_3", "class_4", "class_5"]  # Replace with actual labels if known
+
+def preprocess_image(image_path):
+    """
+    Preprocesses the image for prediction.
+    """
+    # Load the image and resize it to the size used during training
+    img = load_img(image_path, target_size=(150, 150))
+    # Convert the image to an array
+    img_array = img_to_array(img)
+    # Scale pixel values to be between 0 and 1
+    img_array = img_array / 255.0
+    # Expand dimensions to match model's input shape (1, 150, 150, 3)
+    img_array = np.expand_dims(img_array, axis=0)
+    return img_array
+
+def predict_image(model, image_path, class_labels):
+    """
+    Uses the model to predict the class of the image.
+    """
+    # Preprocess the image
+    processed_image = preprocess_image(image_path)
+    # Predict the class probabilities
+    predictions = model.predict(processed_image)
+    # Get the class label with the highest probability
+    predicted_class = np.argmax(predictions)
+    # Retrieve the class name
+    predicted_label = class_labels[predicted_class]
+    return predicted_label, predictions[0]
+
+# Make a prediction on the image
+predicted_label, probabilities = predict_image(model, IMAGE_PATH, class_labels)
+
+print(f"Predicted Label: {predicted_label}")
+print(f"Class Probabilities: {probabilities}")
