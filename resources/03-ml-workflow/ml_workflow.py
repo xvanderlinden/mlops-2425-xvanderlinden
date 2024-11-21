@@ -100,7 +100,7 @@ def preprocess_data():
 #test
 # Task 3: Build Model
 @task
-def build_model():
+def build_model(): # --
     """Builds a CNN model."""
     try:
         model = models.Sequential([
