@@ -43,6 +43,7 @@ waren die niet correct waren ingesteld.Ook waren er problemen met de github Url 
 Ik leerde hoe ik een Machine learning pipeline opzetten en hergebruikte via MLflow. Nu ik weet hoe dit moet
 is het zeker een nuttige skill voor in de praktijk te gebruiken. Het model van nu is niet zo bruikbaar aangezien
 de dataset redelijk klein was. De Voorspellingen zijn dus niet mega accuraat.
+z
 
 ## Antwoorden op vragen
 
