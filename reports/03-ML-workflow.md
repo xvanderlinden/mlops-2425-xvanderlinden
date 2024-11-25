@@ -7,7 +7,31 @@
 
 ## Assignment description
 
-Describe the assignment in your own words. What did you have to do? What was the goal of the assignment?
+In deze opdracht moest je een machine learning workflow opzetten en beheren met behulp van Prefect en MLFlow, en het model vervolgens deployen naar een Azure Managed Endpoint.
+
+Notebook uitvoeren:
+voerde een Jupyter notebook uit met een eenvoudig ML-model dat appels en sinaasappels classificeert. Het doel hiervan was om bekend te raken met het model en de data.
+
+Virtuele Omgeving Instellen:
+Ik maakte een virtuele omgeving voor het project en installeerde benodigde dependencies om een geïsoleerde omgeving te creëren.
+
+Prefect Pipeline Opzetten:
+Ik creëerde een ML pipeline met Prefect, bestaande uit vier taken:
+
+Data downloaden
+Data preprocessen en splitsen
+Model trainen
+Model evalueren
+Elke stap werd als een afzonderlijke task gedefinieerd en gecombineerd in een flow.
+
+MLFlow Integratie:
+Ik integreerde MLFlow om experimenten te loggen en modeltrainingen te monitoren. Ik gebruikte autologging voor metrics en het loggen van model-artefacten zoals het aantal epochs en batchgrootte.
+
+Model Deployen en Predictie Maken:
+Ik deployde het model naar een Azure Managed Endpoint en maakte een voorspelling met het gedeployede model.
+
+Verwachte Output:
+Een volledig uitgevoerde notebook in de repository. Screenshots van de Prefect en MLFlow dashboards. Een labverslag met antwoorden op vragen en screenshots van de resultaten. Een werkende deployment van het model en succesvolle voorspellingen
 
 ## Proof of work done
 
@@ -35,7 +59,7 @@ Describe the assignment in your own words. What did you have to do? What was the
 ## Issues
 
 Ik had problemen met het opzetten van de virtuele enviroment. Er waren problemen met Versies van Keras
-pip en Python. Ik had problemen met het MLflow script te runnen. Aangezien er enviromental variabelen
+pip en Python. Dit heb ik opgelost door een nieuwe Python versie te installeren, maar toen had ik problemen omdat sommige afhankelijkheden niet werkte met de nieuwste versie van python en python niet juist in het Path van windows stond.Ik had problemen met het MLflow script te runnen. Aangezien er enviromental variabelen
 waren die niet correct waren ingesteld.Ook waren er problemen met de github Url en de directories
 
 ## Reflection
@@ -43,9 +67,6 @@ waren die niet correct waren ingesteld.Ook waren er problemen met de github Url 
 Ik leerde hoe ik een Machine learning pipeline opzetten en hergebruikte via MLflow. Nu ik weet hoe dit moet
 is het zeker een nuttige skill voor in de praktijk te gebruiken. Het model van nu is niet zo bruikbaar aangezien
 de dataset redelijk klein was. De Voorspellingen zijn dus niet mega accuraat.
-z
-
-## Antwoorden op vragen
 
 ## Antwoorden op de vragen
 
@@ -67,27 +88,27 @@ Je kunt het tweede `venv` (de naam van de map) aanpassen. De eerste `venv` is de
 
 ### Hoe zorg je ervoor dat je virtuele omgeving niet door Git wordt gevolgd?
 
-Om ervoor te zorgen dat je virtuele omgeving niet door Git wordt gevolgd, voeg je de naam van de virtuele omgeving (bijvoorbeeld `venv/` of de naam van jouw virtuele omgeving) toe aan het `.gitignore`-bestand. Dit bestand zorgt ervoor dat Git de virtuele omgeving en andere tijdelijke bestanden negeert. Voeg de volgende regel toe aan het `.gitignore` 
+Om ervoor te zorgen dat je virtuele omgeving niet door Git wordt gevolgd, voeg je de naam van de virtuele omgeving (bijvoorbeeld `venv/` of de naam van jouw virtuele omgeving) toe aan het `.gitignore`-bestand. Dit bestand zorgt ervoor dat Git de virtuele omgeving en andere tijdelijke bestanden negeert. Voeg de volgende regel toe aan het `.gitignore`  
 
 venv/
 
 ### Waar worden de afhankelijkheden geïnstalleerd?
-<<<<<<< HEAD
 
-=======
->>>>>>> 50a10ae (alles zonder de artifacts)
 De afhankelijkheden worden geïnstalleerd in de virtuele omgeving zelf, meestal in de map venv in je projectdirectory. Dit zorgt ervoor dat de geïnstalleerde pakketten enkel beschikbaar zijn voor dit specifieke project, en niet voor andere projecten of systemen. De geïnstalleerde pakketten staan dus niet in de globale Python-installatie.
 
-Waarom moeten we de omgeving variabele PREFECT_HOME instellen?
+### Waarom moeten we de omgeving variabele PREFECT_HOME instellen?
+
 De omgeving variabele PREFECT_HOME wordt gebruikt om de opslaglocatie van de Prefect configuratie en runtime data aan te geven. Door deze variabele in te stellen, geef je aan waar Prefect zijn configuratiebestanden en logs moet opslaan. Dit is belangrijk omdat het Prefect systeem afhankelijk is van deze configuratie om de werkstromen goed te beheren.
 
-Wat is het nut van het starten van de Prefect server?
+### Wat is het nut van het starten van de Prefect server?
+
 Het starten van de Prefect server is nodig om toegang te krijgen tot het Prefect dashboard. Dit dashboard biedt een visuele interface voor het beheren en monitoren van je werkstromen (pipelines). Het stelt je in staat om de voortgang van taken te volgen, logs te bekijken en fouten te debuggen.
 
-Hoe maak je een Prefect pipeline?
+### Hoe maak je een Prefect pipeline?
+
 In de pipeline moet je verschillende taken (tasks) definiëren, zoals het downloaden van data, het voorverwerken van data, het trainen van het model en het evalueren van het model. Deze taken worden uitgevoerd in een bepaalde volgorde, wat je definieert met een flow.
 
-Voorbeeld van de structuur van je pipeline:
+Voorbeeldtructuur  pipeline:
 
 Download data: Download de afbeeldingen van de GitHub repository.
 Preprocess data: Verwerk de afbeeldingen voor en splits ze in trainings-, validatie- en testsets.
@@ -95,7 +116,8 @@ Train het model: Train een model op de trainingsset.
 Evalueer het model: Evalueer het model op de testset.
 Elke stap moet worden gedefinieerd als een Prefect taak en aan elkaar worden gekoppeld in de juiste volgorde met behulp van een Prefect flow.
 
-Hoe log je experimenten en modelinformatie in MLFlow?
+### Hoe log je experimenten en modelinformatie in MLFlow?
+
 In MLFlow kun je experimenten en modelinformatie loggen door het instellen van de tracking URI en de experimentnaam in je script. Door gebruik te maken van MLFlow's autologging, kun je automatisch belangrijke informatie loggen, zoals modelparameters, metrics en zelfs het model zelf.
 
 Autologging inschakelen: Voor het trainen en evalueren van het model kun je autologging inschakelen om automatisch de hyperparameters, metrics, modelgewichten en andere belangrijke informatie op te slaan. Je kunt bijvoorbeeld mlflow.keras.autolog() gebruiken om Keras modeltraining automatisch te loggen.

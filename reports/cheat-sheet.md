@@ -97,3 +97,36 @@ Simple workflow for a personal project without other contributors:
 | Log metrics met MLFlow                      | `mlflow.log_metric("metric_name", value)`                    |
 | Log een model met MLFlow                    | `mlflow.log_artifact("pad_naar_model")`                      |
 | Zet de MLFlow tracking URI                  | `mlflow.set_tracking_uri("http://localhost:5000")`           |
+
+## Labo 4 - Kubernetes
+
+| Taak                                         | Commando                                                    |
+| Real time (zo goed als) service opvragen     | `while (1) { kubectl get all; sleep 1 } `                   |
+kubectl get deployments
+kubectl get all  
+kubectl get nodes
+kubectl get pods
+kubectl config view
+kubectl create deployment hello-node --image=registry.k8s.io/e2e-test-images/agnhost:2.39 -- /agnhost netexec --http-port=8080
+kubectl expose deployment hello-node --type=LoadBalancer --port=8080
+kubectl get services
+minikube service hello-node x 
+minikube start
+minikube dashboard
+kubectl logs hello-node-66d457cb86-k45gr
+kubectl apply -f echo-deployment.yml
+kubectl apply -f echo-service.yml
+minikube service echo-service x 
+kubectl apply -f echo-all.yml
+minikube service echo-all-service x
+kubectl apply -f echo-all.yml ( ook voor changes)
+kubectl get pods -o wide ( zien bij welke node elke pod hoort)
+for ($i = 1; $i -le 10; $i++) { curl http://127.0.0.1:59623/ } 3 keer andere urls 
+for ($i = 1; $i -le 10; $i++) { curl http://127.0.0.1:59623/ }
+for ($i = 1; $i -le 10; $i++) { curl http://127.0.0.1:59623/ }
+kubectl logs hello-node-66d457cb86-k45gr  
+
+
+kubectl label pod echo-all-deployment-78cdcd9dbf-nm4b5  application_type=demo
+error: 'application_type' already has a value (demo), and --overwrite is false <errormessage zonder --overwrite>
+kubectl label pod echo-all-deployment-78cdcd9dbf-nm4b5  application_type=production --overwrite
