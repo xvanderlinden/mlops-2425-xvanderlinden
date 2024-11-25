@@ -100,33 +100,34 @@ Simple workflow for a personal project without other contributors:
 
 ## Labo 4 - Kubernetes
 
-| Taak                                         | Commando                                                    |
-| Real time (zo goed als) service opvragen     | `while (1) { kubectl get all; sleep 1 } `                   |
-kubectl get deployments
-kubectl get all  
-kubectl get nodes
-kubectl get pods
-kubectl config view
-kubectl create deployment hello-node --image=registry.k8s.io/e2e-test-images/agnhost:2.39 -- /agnhost netexec --http-port=8080
-kubectl expose deployment hello-node --type=LoadBalancer --port=8080
-kubectl get services
-minikube service hello-node x 
-minikube start
-minikube dashboard
-kubectl logs hello-node-66d457cb86-k45gr
-kubectl apply -f echo-deployment.yml
-kubectl apply -f echo-service.yml
-minikube service echo-service x 
-kubectl apply -f echo-all.yml
-minikube service echo-all-service x
-kubectl apply -f echo-all.yml ( ook voor changes)
-kubectl get pods -o wide ( zien bij welke node elke pod hoort)
-for ($i = 1; $i -le 10; $i++) { curl http://127.0.0.1:59623/ } 3 keer andere urls 
-for ($i = 1; $i -le 10; $i++) { curl http://127.0.0.1:59623/ }
-for ($i = 1; $i -le 10; $i++) { curl http://127.0.0.1:59623/ }
-kubectl logs hello-node-66d457cb86-k45gr  
-
-
-kubectl label pod echo-all-deployment-78cdcd9dbf-nm4b5  application_type=demo
-error: 'application_type' already has a value (demo), and --overwrite is false <errormessage zonder --overwrite>
-kubectl label pod echo-all-deployment-78cdcd9dbf-nm4b5  application_type=production --overwrite
+| Taak                                                        | Commando                         |
+| ----------------------------------------------------------- | ---------------------------------|
+| Real-time service opvragen(zo goed als)                     | `while (1) { kubectl get all; sleep 1 }`                          |
+| Toon alle resources                                          | `kubectl get all`                                                 |
+| Toon de deployments                                          | `kubectl get deployments`                                         |
+| Toon de nodes in de cluster                                  | `kubectl get nodes`                                               |
+| Toon de pods in de cluster                                   | `kubectl get pods`                                                |
+| Toon de kubectl configuratie                                 | `kubectl config view`                                             |
+| Maak een "hello-node" deployment                             | `kubectl create deployment hello-node --image=agnhost:2.39 -- /agnhost netexec --http-port=8080` |
+| Exposeer als LoadBalancer service                            | `kubectl expose deployment hello-node --type=LoadBalancer --port=8080` |
+| Toon de services                                             | `kubectl get services`                                            |
+| Open de service via Minikube                                 | `minikube service hello-node`                                      |
+| Start Minikube                                               | `minikube start`                                                  |
+| Open Minikube dashboard                                      | `minikube dashboard`                                              |
+| Toon logs van een pod                                        | `kubectl logs hello-node-66d457cb86-k45gr`                        |
+| Apply deployment YAML                                        | `kubectl apply -f echo-deployment.yml`                            |
+| Apply service YAML                                           | `kubectl apply -f echo-service.yml`                               |
+| Open de echo-service via Minikube                            | `minikube service echo-service`                                   |
+| Apply alle resources via YAML                                | `kubectl apply -f echo-all.yml`                                   |
+| Open alle services via Minikube                              | `minikube service echo-all-service`                               |
+| Toon gedetailleerde podinfo inclusief node                   | `kubectl get pods -o wide`                                        |
+| Maak herhaalde cURL-aanroepen naar een service               | `for ($i = 1; $i -le 10; $i++) { curl http://127.0.0.1:59623/ }` |
+| Voeg een label toe aan een pod                               | `kubectl label pod <pod_name> application_type=demo`               |
+| Verander label met `--overwrite` optie                       | `kubectl label pod <pod_name> application_type=production --overwrite` |
+| Toon pods met labels                                         | `kubectl get pods --show-labels`                                  |
+| Toon jobs met labels                                         | `kubectl get jobs --show-labels`                                  |
+| Toon pods van een specifieke job                             | `kubectl get pods -l job-name=pi`                                 |
+| Toon beschrijving van cronjob                                | `kubectl describe cronjob hello`                                  |
+| Toon alle cronjobs                                           | `kubectl get cronjobs`                                            |
+| Schaal deployment met 5 replicas                             | `kubectl scale deployment frontend --replicas=5`                  |
+| Toon de pods na schaling                                      | `kubectl get pods`                                                |
